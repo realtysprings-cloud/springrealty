@@ -13,8 +13,8 @@
             'https://jabalitowers.com/wp-content/uploads/2025/12/251110_TATU-CreatShot03-PORINI-POINT.jpg',
         ],
         '156 Elara' => [
-            'https://www.tatucity.com/wp-content/uploads/2024/08/Silver-Hill-Townhouses-1-1600x900.jpg',
-            'https://www.tatucity.com/wp-content/uploads/2024/08/Unity-East-Exterior-1-1600x900.jpg',
+            'https://i.roamcdn.net/prop/brk/gallery-main-900w-watermark/d7ec6b3eb3b9073932595d86e0fb032e/-eyJvdyI6IkNBUlRJRVIgQ0FSVEVSIFJFQUxUT1JTIn0%3D/prod-property-core-backend-media-brk/9543386/377b65f0-79b0-428e-954e-2defb7bc0e82.jpeg',
+            'https://i.roamcdn.net/prop/brk/gallery-main-900w-watermark/ff74fb59a510953c5610f081af041e77/-/prod-property-core-backend-media-brk/9543389/4c345090-e59a-46ac-8f5a-509c68c53dc3.jpeg',
         ],
         'Kijani Ridge' => [
             'https://www.tatucity.com/wp-content/uploads/WhatsApp-Image-2024-10-30-at-22.14.11-3-1600x900.jpeg',
