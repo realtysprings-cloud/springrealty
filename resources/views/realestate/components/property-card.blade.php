@@ -1,11 +1,33 @@
+@php
+    $placeholderImages = [
+        'house' => [
+            'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=800&fit=crop&q=85',
+            'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop&q=85',
+            'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=800&fit=crop&q=85',
+        ],
+        'apartment' => [
+            'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&h=800&fit=crop&q=85',
+            'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&h=800&fit=crop&q=85',
+        ],
+        'condo' => [
+            'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&h=800&fit=crop&q=85',
+        ],
+        'land' => [
+            'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=800&fit=crop&q=85',
+        ],
+    ];
+    $type = $property->property_type ?? 'house';
+    $images = $placeholderImages[$type] ?? $placeholderImages['house'];
+    $placeholderUrl = $images[$property->id % count($images)];
+@endphp
+
 @if(isset($large) && $large)
-    {{-- Large bento card --}}
     <a href="{{ route('properties.show', $property->id) }}" class="group block bg-white rounded-3xl overflow-hidden border border-slate-100 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500 h-full">
         <div class="relative h-64 md:h-full min-h-[280px] overflow-hidden">
             @if($property->images->first())
-                <img src="{{ asset('storage/' . $property->images->first()->image) }}" alt="{{ $property->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <img src="{{ asset('storage/' . $property->images->first()->image) }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             @else
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="{{ $property->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <img src="{{ $placeholderUrl }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             @endif
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
             <div class="absolute top-4 left-4">
@@ -37,13 +59,12 @@
         </div>
     </a>
 @else
-    {{-- Regular bento card --}}
     <a href="{{ route('properties.show', $property->id) }}" class="group block bg-white rounded-3xl overflow-hidden border border-slate-100 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500">
         <div class="relative h-52 overflow-hidden">
             @if($property->images->first())
-                <img src="{{ asset('storage/' . $property->images->first()->image) }}" alt="{{ $property->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <img src="{{ asset('storage/' . $property->images->first()->image) }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             @else
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&q=80" alt="{{ $property->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <img src="{{ $placeholderUrl }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             @endif
             <div class="absolute top-4 left-4">
                 <span class="bg-white/90 backdrop-blur text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full">

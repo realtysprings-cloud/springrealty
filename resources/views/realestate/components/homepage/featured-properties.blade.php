@@ -12,11 +12,9 @@
         </div>
 
         @if($properties->count() > 0)
-            {{-- Bento grid layout --}}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 @foreach($properties as $index => $property)
                     @if($index === 0)
-                        {{-- First property: large card --}}
                         <div class="md:col-span-2 lg:row-span-2">
                             @include('realestate.components.property-card', ['property' => $property, 'large' => true])
                         </div>

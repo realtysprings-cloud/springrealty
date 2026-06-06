@@ -14,6 +14,7 @@
         </div>
 
         <div class="flex items-center gap-3">
+            <a href="/login" class="hidden md:inline-flex text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Sign In</a>
             <a href="{{ route('properties.index') }}" class="hidden md:inline-flex items-center gap-2 bg-slate-900 text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-slate-800 transition-colors">
                 Get Started
             </a>
@@ -46,7 +47,8 @@
                 <a href="{{ route('contact') }}" class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl font-medium transition-colors">Contact</a>
             </nav>
         </div>
-        <div class="p-6 border-t border-slate-100">
+        <div class="p-6 border-t border-slate-100 space-y-3">
+            <a href="/login" class="block w-full text-center text-slate-600 text-sm font-medium py-2 hover:text-slate-900 transition-colors">Sign In</a>
             <a href="{{ route('properties.index') }}" class="block w-full text-center bg-slate-900 text-white py-3 rounded-full font-semibold hover:bg-slate-800 transition-colors">Get Started</a>
         </div>
     </div>
