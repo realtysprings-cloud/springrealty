@@ -13,8 +13,8 @@ class HomeController extends Controller
         // Get featured properties only
         $properties = Property::where('featured', true)
             ->with('images')
+            ->orderBy('price', 'asc')
             ->take(6)
-            ->latest()
             ->get();
 
         return view('realestate.pages.home', compact('properties'));
