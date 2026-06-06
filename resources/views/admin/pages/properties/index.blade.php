@@ -19,6 +19,13 @@
     <form method="GET" class="bg-white rounded-2xl border border-slate-100 p-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-6">
         <input type="text" name="search" value="{{ request('search') }}" placeholder="Search properties..."
                class="flex-1 bg-slate-50 border-0 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-slate-200 placeholder:text-slate-400">
+        <select name="type" class="bg-slate-50 border-0 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-slate-200">
+            <option value="">All Types</option>
+            <option value="house" {{ request('type') == 'house' ? 'selected' : '' }}>House</option>
+            <option value="apartment" {{ request('type') == 'apartment' ? 'selected' : '' }}>Apartment</option>
+            <option value="condo" {{ request('type') == 'condo' ? 'selected' : '' }}>Condo</option>
+            <option value="land" {{ request('type') == 'land' ? 'selected' : '' }}>Land</option>
+        </select>
         <select name="status" class="bg-slate-50 border-0 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-slate-200">
             <option value="">All Status</option>
             <option value="for_sale" {{ request('status') == 'for_sale' ? 'selected' : '' }}>For Sale</option>

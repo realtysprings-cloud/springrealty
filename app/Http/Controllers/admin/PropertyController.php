@@ -27,6 +27,10 @@ class PropertyController extends Controller
             $query->where('status', $request->status);
         }
 
+        if ($request->filled('type')) {
+            $query->where('property_type', $request->type);
+        }
+
         $properties = $query->latest()->paginate(10)->withQueryString();
 
         return view('admin.pages.properties.index', compact('properties'));
@@ -103,7 +107,6 @@ class PropertyController extends Controller
         $validated['featured'] = $request->boolean('featured');
         $property->update($validated);
 
-        // Remove selected images
         if ($request->filled('remove_images')) {
             foreach ($request->remove_images as $imageId) {
                 $image = PropertyImage::find($imageId);
@@ -114,7 +117,6 @@ class PropertyController extends Controller
             }
         }
 
-        // Add new images
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $file) {
                 $path = $file->store('properties', 'public');
@@ -128,7 +130,6 @@ class PropertyController extends Controller
 
     public function destroy(Property $property)
     {
-        // Delete associated images from storage
         foreach ($property->images as $image) {
             Storage::disk('public')->delete($image->image);
         }
