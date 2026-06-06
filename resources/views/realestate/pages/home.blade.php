@@ -73,7 +73,7 @@
                 </div>
                 <div class="relative">
                     <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Ready to Find Your<br>Dream Home?</h2>
-                    <p class="text-slate-400 text-lg max-w-lg mx-auto mb-8">Browse our curated collection of premium properties across Nairobi's finest neighborhoods.</p>
+                    <p class="text-slate-400 text-lg max-w-lg mx-auto mb-8">At Spring Realty we are dedicated to helping individuals, families, and businesses find their perfect property. Whether you are looking to buy, sell, rent, or invest — we've got you covered.</p>
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <a href="{{ route('properties.index') }}" class="bg-white text-slate-900 px-8 py-3.5 rounded-full font-semibold hover:bg-slate-100 transition-colors">
                             Browse Properties

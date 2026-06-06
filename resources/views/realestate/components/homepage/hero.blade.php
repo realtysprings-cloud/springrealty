@@ -7,7 +7,7 @@
                     Find Your<br>Dream Home<br>In Nairobi
                 </h1>
                 <p class="text-lg text-slate-500 max-w-md mb-8 leading-relaxed">
-                    Discover exceptional properties in Kenya's most sought-after neighborhoods. Your perfect home awaits.
+                    At Spring Realty we are dedicated to helping individuals, families, and businesses find their perfect property. Whether you are looking to buy, sell, rent, or invest in real estate, our team of experienced agents provides professional guidance and personalized solutions tailored to your needs.
                 </p>
                 <form action="{{ route('properties.index') }}" method="GET" class="flex items-center bg-white rounded-full shadow-lg shadow-slate-200/50 border border-slate-100 p-1.5 max-w-md">
                     <div class="flex-1 flex items-center gap-2 px-4">
