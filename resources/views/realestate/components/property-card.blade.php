@@ -1,28 +1,29 @@
 @php
-    $placeholderImages = [
+    $developmentImages = [
         'Jabali Towers' => [
-            'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&h=800&fit=crop&q=85',
-            'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=800&fit=crop&q=85',
+            'https://jabalitowers.com/wp-content/uploads/2025/11/jpeg-optimizer_residenceimg.png',
+            'https://jabalitowers.com/wp-content/uploads/2026/03/elevations-scaled.jpg',
         ],
         'NEXT Amani' => [
-            'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&h=800&fit=crop&q=85',
-            'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&h=800&fit=crop&q=85',
+            'https://static.tildacdn.one/tild3630-3833-4363-b161-356537633231/33.png',
+            'https://static.tildacdn.one/tild3036-3033-4465-b239-356638616531/_2025-11-20_12454037.png',
         ],
         'Porini Point' => [
-            'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&h=800&fit=crop&q=85',
-            'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=800&fit=crop&q=85',
+            'https://www.tatucity.com/wp-content/uploads/2025/11/251110_FINAL_Aerial1_PORINI-POINT-scaled.jpg',
+            'https://jabalitowers.com/wp-content/uploads/2025/12/251110_TATU-CreatShot03-PORINI-POINT.jpg',
         ],
         '156 Elara' => [
-            'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop&q=85',
-            'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&h=800&fit=crop&q=85',
+            'https://www.tatucity.com/wp-content/uploads/2024/08/Silver-Hill-Townhouses-1-1600x900.jpg',
+            'https://www.tatucity.com/wp-content/uploads/2024/08/Unity-East-Exterior-1-1600x900.jpg',
         ],
         'Kijani Ridge' => [
-            'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=800&fit=crop&q=85',
+            'https://www.tatucity.com/wp-content/uploads/WhatsApp-Image-2024-10-30-at-22.14.11-3-1600x900.jpeg',
+            'https://www.tatucity.com/wp-content/uploads/Kijani-Ridge-R223-Twilight-Shot-1600x900.jpeg',
         ],
     ];
     $dev = $property->property_type ?? 'Jabali Towers';
-    $images = $placeholderImages[$dev] ?? $placeholderImages['Jabali Towers'];
-    $placeholderUrl = $images[$property->id % count($images)];
+    $images = $developmentImages[$dev] ?? $developmentImages['Jabali Towers'];
+    $cardImage = $images[$property->id % count($images)];
 @endphp
 
 @if(isset($large) && $large)
@@ -34,7 +35,7 @@
             @elseif($img)
                 <img src="{{ asset('storage/' . $img->image) }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             @else
-                <img src="{{ $placeholderUrl }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <img src="{{ $cardImage }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             @endif
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
             <div class="absolute top-4 left-4 flex items-center gap-2">
@@ -80,7 +81,7 @@
             @elseif($img)
                 <img src="{{ asset('storage/' . $img->image) }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             @else
-                <img src="{{ $placeholderUrl }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <img src="{{ $cardImage }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             @endif
             <div class="absolute top-4 left-4 flex items-center gap-2">
                 <span class="bg-white/90 backdrop-blur text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full">

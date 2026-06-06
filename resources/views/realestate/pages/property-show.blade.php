@@ -35,11 +35,11 @@
                 <div class="rounded-3xl overflow-hidden aspect-[21/9] bg-slate-100">
                     @php
                         $placeholderImages = [
-                            'Jabali Towers' => 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&h=700&fit=crop&q=85',
-                            'NEXT Amani' => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1600&h=700&fit=crop&q=85',
-                            'Porini Point' => 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1600&h=700&fit=crop&q=85',
-                            '156 Elara' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&h=700&fit=crop&q=85',
-                            'Kijani Ridge' => 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&h=700&fit=crop&q=85',
+                            'Jabali Towers' => 'https://jabalitowers.com/wp-content/uploads/2025/11/jpeg-optimizer_residenceimg.png',
+                            'NEXT Amani' => 'https://static.tildacdn.one/tild3630-3833-4363-b161-356537633231/33.png',
+                            'Porini Point' => 'https://www.tatucity.com/wp-content/uploads/2025/11/251110_FINAL_Aerial1_PORINI-POINT-scaled.jpg',
+                            '156 Elara' => 'https://www.tatucity.com/wp-content/uploads/2024/08/Silver-Hill-Townhouses-1-1600x900.jpg',
+                            'Kijani Ridge' => 'https://www.tatucity.com/wp-content/uploads/WhatsApp-Image-2024-10-30-at-22.14.11-3-1600x900.jpeg',
                         ];
                         $dev = $property->property_type ?? 'Jabali Towers';
                     @endphp

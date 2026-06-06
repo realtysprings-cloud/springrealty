@@ -1,7 +1,7 @@
 <section class="py-16 px-4 md:px-8">
     <div class="max-w-7xl mx-auto">
         <div class="relative rounded-4xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&h=600&fit=crop&q=85" alt="Tatu City" loading="lazy" class="w-full h-80 md:h-96 object-cover">
+            <img src="https://www.tatucity.com/wp-content/uploads/Kijani-Ridge-R223-Twilight-Shot-1600x900.jpeg" alt="Tatu City" loading="lazy" class="w-full h-80 md:h-96 object-cover">
             <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
                 <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Ready to Invest in<br>Tatu City?</h2>
