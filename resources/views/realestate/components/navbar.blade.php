@@ -14,10 +14,47 @@
         </div>
 
         <div class="flex items-center gap-3">
-            <a href="/login" class="hidden md:inline-flex text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Sign In</a>
-            <a href="{{ route('properties.index') }}" class="hidden md:inline-flex items-center gap-2 bg-slate-900 text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-slate-800 transition-colors">
-                Get Started
-            </a>
+            @auth
+                @if(auth()->user()->isAdmin())
+                    <a href="{{ route('admin.dashboard') }}" class="hidden md:inline-flex text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Admin Panel</a>
+                @endif
+                <div class="relative" id="user-menu-wrapper">
+                    <button onclick="toggleUserMenu()" class="flex items-center gap-2">
+                        @if(auth()->user()->avatar)
+                            <img src="{{ auth()->user()->avatar }}" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-slate-200">
+                        @else
+                            <div class="w-9 h-9 bg-slate-900 rounded-full flex items-center justify-center">
+                                <span class="text-white text-sm font-bold">{{ substr(auth()->user()->name, 0, 1) }}</span>
+                            </div>
+                        @endif
+                    </button>
+                    <div id="user-menu" class="hidden absolute right-0 top-12 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 w-56 z-50">
+                        <div class="px-4 py-3 border-b border-slate-100">
+                            <p class="text-sm font-semibold">{{ auth()->user()->name }}</p>
+                            <p class="text-xs text-slate-400">{{ auth()->user()->email }}</p>
+                        </div>
+                        @if(auth()->user()->isAdmin())
+                            <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg>
+                                Admin Panel
+                            </a>
+                        @endif
+                        <form method="POST" action="{{ route('admin.logout') }}">
+                            @csrf
+                            <button type="submit" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                                Sign Out
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            @else
+                <button onclick="openAuthModal()" class="hidden md:inline-flex text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Sign In</button>
+                <button onclick="openAuthModal()" class="bg-slate-900 text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-slate-800 transition-colors">
+                    Get Started
+                </button>
+            @endauth
+
             <button id="mobile-menu-button" class="md:hidden p-2 text-slate-700">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
@@ -45,11 +82,48 @@
                 <a href="{{ route('home') }}" class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl font-medium transition-colors">Home</a>
                 <a href="{{ route('properties.index') }}" class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl font-medium transition-colors">Properties</a>
                 <a href="{{ route('contact') }}" class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl font-medium transition-colors">Contact</a>
+                @auth
+                    @if(auth()->user()->isAdmin())
+                        <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl font-medium transition-colors">Admin Panel</a>
+                    @endif
+                @endauth
             </nav>
         </div>
         <div class="p-6 border-t border-slate-100 space-y-3">
-            <a href="/login" class="block w-full text-center text-slate-600 text-sm font-medium py-2 hover:text-slate-900 transition-colors">Sign In</a>
-            <a href="{{ route('properties.index') }}" class="block w-full text-center bg-slate-900 text-white py-3 rounded-full font-semibold hover:bg-slate-800 transition-colors">Get Started</a>
+            @auth
+                <div class="flex items-center gap-3 px-4 py-2">
+                    @if(auth()->user()->avatar)
+                        <img src="{{ auth()->user()->avatar }}" alt="" class="w-9 h-9 rounded-full object-cover">
+                    @else
+                        <div class="w-9 h-9 bg-slate-900 rounded-full flex items-center justify-center">
+                            <span class="text-white text-sm font-bold">{{ substr(auth()->user()->name, 0, 1) }}</span>
+                        </div>
+                    @endif
+                    <div>
+                        <p class="text-sm font-semibold">{{ auth()->user()->name }}</p>
+                        <p class="text-xs text-slate-400">{{ auth()->user()->email }}</p>
+                    </div>
+                </div>
+                <form method="POST" action="{{ route('admin.logout') }}">
+                    @csrf
+                    <button type="submit" class="block w-full text-center text-slate-500 text-sm font-medium py-2 hover:text-slate-900 transition-colors">Sign Out</button>
+                </form>
+            @else
+                <button onclick="openAuthModal(); closeSidebarFunc();" class="block w-full text-center text-slate-600 text-sm font-medium py-2 hover:text-slate-900 transition-colors">Sign In</button>
+                <button onclick="openAuthModal(); closeSidebarFunc();" class="block w-full bg-slate-900 text-white py-3 rounded-full font-semibold hover:bg-slate-800 transition-colors">Get Started</button>
+            @endauth
         </div>
     </div>
 </div>
+
+<script>
+    function toggleUserMenu() {
+        document.getElementById('user-menu').classList.toggle('hidden');
+    }
+    document.addEventListener('click', (e) => {
+        const wrapper = document.getElementById('user-menu-wrapper');
+        if (wrapper && !wrapper.contains(e.target)) {
+            document.getElementById('user-menu').classList.add('hidden');
+        }
+    });
+</script>

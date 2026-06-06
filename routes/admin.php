@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\PropertyController;
 
@@ -11,18 +10,7 @@ use App\Http\Controllers\admin\PropertyController;
 //  Deleting this file won't affect the main app at all.
 // ══════════════════════════════════════════════════════════════
 
-// Guest admin routes (login)
-Route::middleware('guest')->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-    Route::post('/login', [AuthController::class, 'login']);
-    Route::get('/auth/google', [AuthController::class, 'googleRedirect'])->name('auth.google');
-    Route::get('/auth/google/callback', [AuthController::class, 'googleCallback'])->name('auth.google.callback');
-});
-
-// Authenticated admin routes
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
     // Dashboard
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 

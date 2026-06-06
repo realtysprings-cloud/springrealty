@@ -11,7 +11,7 @@ use Laravel\Socialite\Facades\Socialite;
 class AuthController extends Controller
 {
     // ══════════════════════════════════════════════════════════════
-    //  LOGIN FORM (email/password)
+    //  LOGIN (modal AJAX + standard POST)
     // ══════════════════════════════════════════════════════════════
 
     public function showLogin()
@@ -26,25 +26,35 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        $remember = $request->boolean('remember');
-
-        if (Auth::attempt($credentials, $remember)) {
-            $user = Auth::user();
-
-            if (!$user->isAdmin()) {
-                Auth::logout();
-                return back()->withErrors(['email' => 'You do not have admin access.']);
+        if (!Auth::attempt($credentials, true)) {
+            if ($request->expectsJson() || $request->isXmlHttpRequest()) {
+                return response()->json(['message' => 'Invalid credentials.'], 422);
             }
-
-            $request->session()->regenerate();
-            return redirect()->route('admin.dashboard');
+            return back()->withErrors(['email' => 'Invalid credentials.'])->onlyInput('email');
         }
 
-        return back()->withErrors(['email' => 'Invalid credentials.'])->onlyInput('email');
+        $user = Auth::user();
+
+        if (!$user->isAdmin()) {
+            Auth::logout();
+            $msg = 'You do not have admin access.';
+            if ($request->expectsJson() || $request->isXmlHttpRequest()) {
+                return response()->json(['message' => $msg], 422);
+            }
+            return back()->withErrors(['email' => $msg]);
+        }
+
+        $request->session()->regenerate();
+
+        if ($request->expectsJson() || $request->isXmlHttpRequest()) {
+            return response()->json(['redirect' => url('/')]);
+        }
+
+        return redirect()->intended('/');
     }
 
     // ══════════════════════════════════════════════════════════════
-    //  GOOGLE OAuth
+    //  GOOGLE OAuth (public — anyone can sign in)
     // ══════════════════════════════════════════════════════════════
 
     public function googleRedirect()
@@ -57,8 +67,8 @@ class AuthController extends Controller
         try {
             $googleUser = Socialite::driver('google')->user();
         } catch (\Exception $e) {
-            return redirect()->route('admin.login')
-                ->withErrors(['email' => 'Google login failed. Please try again.']);
+            return redirect()->route('home')
+                ->withErrors(['error' => 'Google login failed. Please try again.']);
         }
 
         // Find or create user
@@ -82,17 +92,15 @@ class AuthController extends Controller
             ]);
         }
 
-        // Only allow admin emails
-        if (!$user->isAdmin()) {
-            return redirect()->route('admin.login')
-                ->withErrors(['email' => 'Your Google account does not have admin access.']);
+        Auth::login($user, true);
+        request()->session()->regenerate();
+
+        // If admin, go to admin panel. Otherwise, go home.
+        if ($user->isAdmin()) {
+            return redirect()->route('admin.dashboard');
         }
 
-        Auth::login($user, true);
-        $request = request();
-        $request->session()->regenerate();
-
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('home');
     }
 
     // ══════════════════════════════════════════════════════════════
@@ -104,6 +112,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('admin.login');
+        return redirect()->route('home');
     }
 }
