@@ -25,22 +25,22 @@
             </div>
 
             <div class="grid grid-cols-2 grid-rows-2 gap-4 h-[520px]">
-                <a href="{{ route('properties.index', ['type' => 'Porini Point']) }}" class="col-span-2 relative rounded-3xl overflow-hidden group">
-                    <img src="https://jabalitowers.com/wp-content/uploads/2025/12/251110_TATU-CreatShot03-PORINI-POINT.jpg" alt="Porini Point" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <a href="{{ route('properties.index', ['type' => 'Jabali Towers']) }}" class="col-span-2 relative rounded-3xl overflow-hidden group">
+                    <img src="https://jabalitowers.com/wp-content/uploads/2025/11/jpeg-optimizer_residenceimg.png" alt="Jabali Towers" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     <div class="absolute bottom-5 left-5">
                         <p class="text-white/70 text-xs font-bold uppercase tracking-widest mb-1">Now Selling</p>
-                        <p class="text-white text-xl font-bold">Porini Point — From KES 5.99M</p>
+                        <p class="text-white text-xl font-bold">Jabali Towers — From KES 6.1M</p>
                     </div>
                     <div class="absolute top-5 left-5">
                         <span class="bg-white/90 backdrop-blur text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full">View All Developments →</span>
                     </div>
                 </a>
-                <a href="{{ route('properties.index', ['type' => 'Jabali Towers']) }}" class="relative rounded-3xl overflow-hidden group">
-                    <img src="https://jabalitowers.com/wp-content/uploads/2025/11/jpeg-optimizer_residenceimg.png" alt="Jabali Towers" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <a href="{{ route('properties.index', ['type' => 'Porini Point']) }}" class="relative rounded-3xl overflow-hidden group">
+                    <img src="https://www.tatucity.com/wp-content/uploads/2025/11/251110_FINAL_Aerial1_PORINI-POINT-scaled.jpg" alt="Porini Point" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     <div class="absolute bottom-4 left-4">
-                        <p class="text-white text-lg font-bold">Jabali Towers</p>
+                        <p class="text-white text-lg font-bold">Porini Point</p>
                     </div>
                 </a>
                 <a href="{{ route('properties.index', ['type' => 'NEXT Amani']) }}" class="relative rounded-3xl overflow-hidden group">
