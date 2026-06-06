@@ -38,6 +38,7 @@ class Property extends Model
         'size_sqm' => 'decimal:2',
         'featured' => 'boolean',
         'is_featured_development' => 'boolean',
+        'key_features' => 'array',
     ];
 
     public function images(): HasMany
