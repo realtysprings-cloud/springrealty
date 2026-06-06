@@ -1,42 +1,32 @@
+@php
+    $developments = [
+        ['name' => 'Jabali Towers', 'tagline' => 'Studios to Penthouses | From KES 6.1M', 'route' => 'Jabali Towers'],
+        ['name' => 'Porini Point', 'tagline' => '1, 2 & 3 Bed | Wildlife Sanctuary Views | From KES 5.99M', 'route' => 'Porini Point'],
+        ['name' => 'NEXT Amani', 'tagline' => 'Studios to 3 Bed | Global Developer | From KES 6.5M', 'route' => 'NEXT Amani'],
+        ['name' => '156 Elara', 'tagline' => '3 & 4 Bed Townhouses | Exclusive 156 Homes | From KES 29.9M', 'route' => '156 Elara'],
+        ['name' => 'Kijani Ridge', 'tagline' => '1/4 & 1/2 Acre Plots | Dam Views | From KES 24M', 'route' => 'Kijani Ridge'],
+    ];
+@endphp
+
 <section class="py-16 px-4 md:px-8">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12">
-            <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-2">Browse By Type</p>
-            <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight">Explore Properties</h2>
+            <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-2">Tatu City Developments</p>
+            <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight">Browse by Development</h2>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <a href="{{ route('properties.index', ['type' => 'house']) }}" class="group relative rounded-3xl overflow-hidden aspect-[4/5]">
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=1000&fit=crop&q=85" alt="Houses" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 class="text-white text-xl font-bold mb-1">Houses</h3>
-                    <p class="text-white/60 text-sm">Luxury homes & family houses</p>
-                </div>
-            </a>
-            <a href="{{ route('properties.index', ['type' => 'apartment']) }}" class="group relative rounded-3xl overflow-hidden aspect-[4/5]">
-                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=1000&fit=crop&q=85" alt="Apartments" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 class="text-white text-xl font-bold mb-1">Apartments</h3>
-                    <p class="text-white/60 text-sm">Modern city living</p>
-                </div>
-            </a>
-            <a href="{{ route('properties.index', ['type' => 'condo']) }}" class="group relative rounded-3xl overflow-hidden aspect-[4/5]">
-                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=1000&fit=crop&q=85" alt="Condos" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 class="text-white text-xl font-bold mb-1">Condos</h3>
-                    <p class="text-white/60 text-sm">Premium townhouse living</p>
-                </div>
-            </a>
-            <a href="{{ route('properties.index', ['type' => 'land']) }}" class="group relative rounded-3xl overflow-hidden aspect-[4/5]">
-                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=1000&fit=crop&q=85" alt="Land" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 class="text-white text-xl font-bold mb-1">Land</h3>
-                    <p class="text-white/60 text-sm">Plots & investment land</p>
-                </div>
-            </a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            @foreach($developments as $dev)
+                <a href="{{ route('properties.index', ['type' => $dev['route']]) }}" class="group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-1 group-hover:text-slate-700 transition-colors">{{ $dev['name'] }}</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">{{ $dev['tagline'] }}</p>
+                        <div class="mt-4 flex items-center gap-2 text-slate-900 text-sm font-semibold">
+                            View Units
+                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
         </div>
     </div>
 </section>

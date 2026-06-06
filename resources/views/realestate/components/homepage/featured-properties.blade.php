@@ -2,8 +2,8 @@
     <div class="max-w-7xl mx-auto">
         <div class="flex items-end justify-between mb-10">
             <div>
-                <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-2">Portfolio</p>
-                <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight">Featured Properties</h2>
+                <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-2">Featured Listings</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight">Premium Properties</h2>
             </div>
             <a href="{{ route('properties.index') }}" class="hidden md:inline-flex items-center gap-2 bg-slate-900 text-white text-sm font-medium px-6 py-3 rounded-full hover:bg-slate-800 transition-colors">
                 View All

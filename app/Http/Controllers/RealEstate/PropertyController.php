@@ -16,12 +16,12 @@ class PropertyController extends Controller
             $query->where('property_type', $request->type);
         }
 
-        if ($request->filled('status')) {
-            $query->where('status', $request->status);
+        if ($request->filled('unit_type')) {
+            $query->where('unit_type', $request->unit_type);
         }
 
-        if ($request->filled('city')) {
-            $query->where('city', 'like', '%' . $request->city . '%');
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
         }
 
         $properties = $query->latest()->paginate(9)->withQueryString();
