@@ -13,6 +13,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 Route::get('/auth/google', [AuthController::class, 'googleRedirect'])->name('admin.auth.google');
 Route::get('/auth/google/callback', [AuthController::class, 'googleCallback'])->name('admin.auth.google.callback');
 
+// Alias: auth middleware expects a "login" named route for redirects
+Route::get('/login', fn () => redirect()->route('home'))->name('login');
+
 // ══════════════════════════════════════════════════════════════
 //  PUBLIC REAL ESTATE ROUTES
 // ══════════════════════════════════════════════════════════════
