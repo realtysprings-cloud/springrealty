@@ -51,7 +51,7 @@
 
         <div class="border-t border-slate-100 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
             <p class="text-slate-400 text-sm">&copy; {{ date('Y') }} Spring Realty. All rights reserved.</p>
-            <p class="text-slate-400 text-xs">Specialists in Tatu City, Nairobi</p>
+            <p class="text-slate-400 text-xs">Developed by 0703626374 | Specialists in Tatu City, Nairobi</p>
         </div>
     </div>
 </footer>
