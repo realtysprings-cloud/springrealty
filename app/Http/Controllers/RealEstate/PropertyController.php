@@ -12,6 +12,10 @@ class PropertyController extends Controller
     {
         $query = Property::with('images');
 
+        if ($request->filled('development')) {
+            $query->where('property_type', $request->development);
+        }
+
         if ($request->filled('type')) {
             $query->where('property_type', $request->type);
         }

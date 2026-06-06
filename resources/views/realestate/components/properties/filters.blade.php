@@ -8,16 +8,16 @@
         <form method="GET" action="{{ route('properties.index') }}" class="bg-white rounded-2xl shadow-sm border border-slate-100 p-4 flex flex-col md:flex-row items-stretch md:items-center gap-4">
             <div class="flex-1">
                 <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Development</label>
-                <select name="type" class="w-full bg-slate-50 border-0 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-slate-200 outline-none">
+                <select name="type" onchange="this.form.submit()" class="w-full bg-slate-50 border-0 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-slate-200 outline-none">
                     <option value="">All Developments</option>
                     @foreach($developments as $dev)
-                        <option value="{{ $dev }}" {{ request('type') == $dev ? 'selected' : '' }}>{{ $dev }}</option>
+                        <option value="{{ $dev }}" {{ request('type', request('development')) == $dev ? 'selected' : '' }}>{{ $dev }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="flex-1">
                 <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Unit Type</label>
-                <select name="unit_type" class="w-full bg-slate-50 border-0 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-slate-200 outline-none">
+                <select name="unit_type" onchange="this.form.submit()" class="w-full bg-slate-50 border-0 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-slate-200 outline-none">
                     <option value="">All Unit Types</option>
                     @foreach($unitTypes as $ut)
                         <option value="{{ $ut }}" {{ request('unit_type') == $ut ? 'selected' : '' }}>{{ ucfirst(str_replace('-', ' ', $ut)) }}</option>
@@ -26,7 +26,7 @@
             </div>
             <div class="flex-1">
                 <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Status</label>
-                <select name="status" class="w-full bg-slate-50 border-0 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-slate-200 outline-none">
+                <select name="status" onchange="this.form.submit()" class="w-full bg-slate-50 border-0 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-slate-200 outline-none">
                     <option value="">All Status</option>
                     <option value="for_sale" {{ request('status') == 'for_sale' ? 'selected' : '' }}>For Sale</option>
                     <option value="for_rent" {{ request('status') == 'for_rent' ? 'selected' : '' }}>For Rent</option>
