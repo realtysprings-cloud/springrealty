@@ -6,7 +6,7 @@
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             <a href="{{ route('properties.index', ['type' => 'house']) }}" class="group relative rounded-3xl overflow-hidden aspect-[4/5]">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=1000&fit=crop&q=85" alt="Houses" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=1000&fit=crop&q=85" alt="Houses" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
                     <h3 class="text-white text-xl font-bold mb-1">Houses</h3>
@@ -14,7 +14,7 @@
                 </div>
             </a>
             <a href="{{ route('properties.index', ['type' => 'apartment']) }}" class="group relative rounded-3xl overflow-hidden aspect-[4/5]">
-                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=1000&fit=crop&q=85" alt="Apartments" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=1000&fit=crop&q=85" alt="Apartments" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
                     <h3 class="text-white text-xl font-bold mb-1">Apartments</h3>
@@ -22,11 +22,11 @@
                 </div>
             </a>
             <a href="{{ route('properties.index', ['type' => 'condo']) }}" class="group relative rounded-3xl overflow-hidden aspect-[4/5]">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=1000&fit=crop&q=85" alt="Condos" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=1000&fit=crop&q=85" alt="Condos" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
                     <h3 class="text-white text-xl font-bold mb-1">Condos</h3>
-                    <p class="text-white/60 text-sm">Premium waterfront living</p>
+                    <p class="text-white/60 text-sm">Premium townhouse living</p>
                 </div>
             </a>
             <a href="{{ route('properties.index', ['type' => 'land']) }}" class="group relative rounded-3xl overflow-hidden aspect-[4/5]">
