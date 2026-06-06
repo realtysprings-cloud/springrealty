@@ -38,7 +38,7 @@
                             'Jabali Towers' => 'https://jabalitowers.com/wp-content/uploads/2025/11/jpeg-optimizer_residenceimg.png',
                             'NEXT Amani' => 'https://static.tildacdn.one/tild3630-3833-4363-b161-356537633231/33.png',
                             'Porini Point' => 'https://www.tatucity.com/wp-content/uploads/2025/11/251110_FINAL_Aerial1_PORINI-POINT-scaled.jpg',
-                            '156 Elara' => 'https://www.tatucity.com/wp-content/uploads/2024/08/Silver-Hill-Townhouses-1-1600x900.jpg',
+                            '156 Elara' => 'https://i.roamcdn.net/prop/brk/gallery-main-900w-watermark/d7ec6b3eb3b9073932595d86e0fb032e/-eyJvdyI6IkNBUlRJRVIgQ0FSVEVSIFJFQUxUT1JTIn0%3D/prod-property-core-backend-media-brk/9543386/377b65f0-79b0-428e-954e-2defb7bc0e82.jpeg',
                             'Kijani Ridge' => 'https://www.tatucity.com/wp-content/uploads/WhatsApp-Image-2024-10-30-at-22.14.11-3-1600x900.jpeg',
                         ];
                         $dev = $property->property_type ?? 'Jabali Towers';
