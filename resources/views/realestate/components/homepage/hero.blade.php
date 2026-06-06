@@ -28,7 +28,7 @@
             <div class="grid grid-cols-2 gap-4">
                 {{-- Featured property --}}
                 <div class="col-span-2 relative rounded-3xl overflow-hidden h-64 lg:h-72 group cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=800&fit=crop&q=85" alt="Featured luxury home in Nairobi" loading="eager" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&h=800&fit=crop&q=85" alt="Featured luxury home in Nairobi" loading="eager" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-6">
                         <p class="text-white/70 text-xs font-bold uppercase tracking-widest mb-1">Featured Listing</p>
@@ -49,12 +49,12 @@
                 {{-- Category cards --}}
                 <div class="grid grid-rows-2 gap-4">
                     <a href="{{ route('properties.index', ['type' => 'house']) }}" class="relative rounded-3xl overflow-hidden group cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop&q=85" alt="Houses in Nairobi" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop&q=85" alt="Houses in Nairobi" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 text-white font-bold text-sm">Houses</p>
                     </a>
                     <a href="{{ route('properties.index', ['type' => 'apartment']) }}" class="relative rounded-3xl overflow-hidden group cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop&q=85" alt="Apartments in Nairobi" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop&q=85" alt="Apartments in Nairobi" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 text-white font-bold text-sm">Apartments</p>
                     </a>

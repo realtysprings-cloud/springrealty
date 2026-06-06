@@ -35,7 +35,7 @@
                 </div>
             @else
                 <div class="rounded-3xl overflow-hidden aspect-[21/9] bg-slate-100">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&h=700&fit=crop&q=85" alt="{{ $property->title }}" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1600&h=700&fit=crop&q=85" alt="{{ $property->title }}" class="w-full h-full object-cover">
                 </div>
             @endif
         </div>
