@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div class="bg-white rounded-3xl border border-slate-100 overflow-hidden">
-                    <img src="https://i.roamcdn.net/prop/brk/gallery-main-900w-watermark/d7ec6b3eb3b9073932595d86e0fb032e/-eyJvdyI6IkNBUlRJRVIgQ0FSVEVSIFJFQUxUT1JTIn0%3D/prod-property-core-backend-media-brk/9543386/377b65f0-79b0-428e-954e-2defb7bc0e82.jpeg" alt="156 Elara" loading="lazy" class="w-full h-48 object-cover">
+                    <img src="https://i.roamcdn.net/prop/brk/gallery-main-900w-watermark/51bb650110f0af1a33d8665a2e79de64/-/prod-property-core-backend-media-brk/9543392/fdaa248d-6d28-4e11-b553-188b0f24bc3c.jpeg" alt="156 Elara" loading="lazy" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="font-bold text-lg text-slate-900 mb-2">156 Elara</h3>
                         <p class="text-slate-500 text-sm">Exclusive townhouses in a gated community. Privacy, space, and luxury combined.</p>

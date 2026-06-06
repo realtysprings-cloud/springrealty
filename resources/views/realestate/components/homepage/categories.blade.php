@@ -3,7 +3,7 @@
         ['name' => 'Jabali Towers', 'tagline' => 'Studios to Penthouses | From KES 6.1M', 'route' => 'Jabali Towers', 'image' => 'https://jabalitowers.com/wp-content/uploads/2025/11/jpeg-optimizer_residenceimg.png'],
         ['name' => 'Porini Point', 'tagline' => '1, 2 & 3 Bed | Wildlife Sanctuary Views | From KES 5.99M', 'route' => 'Porini Point', 'image' => 'https://www.tatucity.com/wp-content/uploads/2025/11/251110_FINAL_Aerial1_PORINI-POINT-scaled.jpg'],
         ['name' => 'NEXT Amani', 'tagline' => 'Studios to 3 Bed | Global Developer | From KES 6.5M', 'route' => 'NEXT Amani', 'image' => 'https://static.tildacdn.one/tild3630-3833-4363-b161-356537633231/33.png'],
-        ['name' => '156 Elara', 'tagline' => '3 & 4 Bed Townhouses | Exclusive 156 Homes | From KES 29.9M', 'route' => '156 Elara', 'image' => 'https://i.roamcdn.net/prop/brk/gallery-main-900w-watermark/d7ec6b3eb3b9073932595d86e0fb032e/-eyJvdyI6IkNBUlRJRVIgQ0FSVEVSIFJFQUxUT1JTIn0%3D/prod-property-core-backend-media-brk/9543386/377b65f0-79b0-428e-954e-2defb7bc0e82.jpeg'],
+        ['name' => '156 Elara', 'tagline' => '3 & 4 Bed Townhouses | Exclusive 156 Homes | From KES 29.9M', 'route' => '156 Elara', 'image' => 'https://i.roamcdn.net/prop/brk/gallery-main-900w-watermark/ff74fb59a510953c5610f081af041e77/-/prod-property-core-backend-media-brk/9543389/4c345090-e59a-46ac-8f5a-509c68c53dc3.jpeg'],
         ['name' => 'Kijani Ridge', 'tagline' => '1/4 & 1/2 Acre Plots | Dam Views | From KES 24M', 'route' => 'Kijani Ridge', 'image' => 'https://www.tatucity.com/wp-content/uploads/WhatsApp-Image-2024-10-30-at-22.14.11-3-1600x900.jpeg'],
     ];
 @endphp
