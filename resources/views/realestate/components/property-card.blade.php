@@ -27,8 +27,11 @@
 @if(isset($large) && $large)
     <a href="{{ route('properties.show', $property->id) }}" class="group block bg-white rounded-3xl overflow-hidden border border-slate-100 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500 h-full">
         <div class="relative h-64 md:h-full min-h-[280px] overflow-hidden">
-            @if($property->images->first())
-                <img src="{{ asset('storage/' . $property->images->first()->image) }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            @php $img = $property->images->first(); @endphp
+            @if($img && str_starts_with($img->image, 'http'))
+                <img src="{{ $img->image }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            @elseif($img)
+                <img src="{{ asset('storage/' . $img->image) }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             @else
                 <img src="{{ $placeholderUrl }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             @endif
@@ -64,8 +67,11 @@
 @else
     <a href="{{ route('properties.show', $property->id) }}" class="group block bg-white rounded-3xl overflow-hidden border border-slate-100 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500">
         <div class="relative h-52 overflow-hidden">
-            @if($property->images->first())
-                <img src="{{ asset('storage/' . $property->images->first()->image) }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            @php $img = $property->images->first(); @endphp
+            @if($img && str_starts_with($img->image, 'http'))
+                <img src="{{ $img->image }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            @elseif($img)
+                <img src="{{ asset('storage/' . $img->image) }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             @else
                 <img src="{{ $placeholderUrl }}" alt="{{ $property->title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             @endif

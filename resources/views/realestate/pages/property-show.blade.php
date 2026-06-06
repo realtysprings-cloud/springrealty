@@ -10,7 +10,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3 rounded-3xl overflow-hidden" id="gallery">
                     {{-- Main image --}}
                     <div class="md:col-span-2 relative aspect-[16/10] md:aspect-auto md:h-[480px] overflow-hidden cursor-pointer group" onclick="openLightbox(0)">
-                        <img src="{{ asset('storage/' . $property->images->first()->image) }}" alt="{{ $property->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="{{ str_starts_with($property->images->first()->image, 'http') ? $property->images->first()->image : asset('storage/' . $property->images->first()->image) }}" alt="{{ $property->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
                         @if($property->images->count() > 1)
                             <span class="absolute bottom-4 left-4 bg-black/60 backdrop-blur text-white text-xs font-semibold px-3 py-1.5 rounded-full">
@@ -22,7 +22,7 @@
                     <div class="hidden md:grid grid-rows-2 gap-3">
                         @foreach($property->images->take(2) as $i => $image)
                             <div class="relative overflow-hidden cursor-pointer group" onclick="openLightbox({{ $i + 1 }})">
-                                <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $property->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <img src="{{ str_starts_with($image->image, 'http') ? $image->image : asset('storage/' . $image->image) }}" alt="{{ $property->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                                 <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
                                 @if($loop->last && $property->images->count() > 2)
                                     <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
@@ -235,7 +235,7 @@
 @section('scripts')
 <script>
     // Lightbox
-    const images = {!! json_encode($property->images->map(fn($img) => asset('storage/' . $img->image)) ) !!};
+    const images = {!! json_encode($property->images->map(fn($img) => str_starts_with($img->image, 'http') ? $img->image : asset('storage/' . $img->image)) ) !!};
     let currentIndex = 0;
 
     function openLightbox(index) {
