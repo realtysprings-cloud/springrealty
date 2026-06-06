@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Spring Realty - Real Estate')</title>
+    @include('realestate.components.seo')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9TQJD1J0PG"></script>
@@ -44,11 +44,13 @@
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
     @yield('head')
+    @include('realestate.components.json-ld')
 </head>
 <body class="bg-[#f5f3ef] text-slate-900 font-sans antialiased">
     @include('realestate.components.navbar')
     @include('realestate.components.auth-modal')
 
+    @include('realestate.components.breadcrumbs')
     <main>
         @yield('content')
     </main>

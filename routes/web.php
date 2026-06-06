@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RealEstate\HomeController;
 use App\Http\Controllers\RealEstate\PropertyController;
+use App\Http\Controllers\RealEstate\SitemapController;
 use App\Http\Controllers\admin\AuthController;
 
 // ══════════════════════════════════════════════════════════════
@@ -28,3 +29,5 @@ Route::get('/contact', function () {
 Route::get('/about', function () {
     return view('realestate.pages.about');
 })->name('about');
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
