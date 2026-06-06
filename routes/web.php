@@ -25,3 +25,6 @@ Route::get('/properties/{property}', [PropertyController::class, 'show'])->name(
 Route::get('/contact', function () {
     return view('realestate.pages.contact');
 })->name('contact');
+Route::get('/about', function () {
+    return view('realestate.pages.about');
+})->name('about');

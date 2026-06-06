@@ -9,7 +9,38 @@
 
         <div class="hidden md:flex items-center gap-8">
             <a href="{{ route('home') }}" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">Home</a>
-            <a href="{{ route('properties.index') }}" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">Properties</a>
+            <div class="relative" id="developments-wrapper">
+                <button onclick="toggleDevelopments()" class="flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+                    Developments
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div id="developments-dropdown" class="hidden absolute left-0 top-10 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 w-56 z-50">
+                    <a href="{{ route('properties.index', ['development' => 'Jabali Towers']) }}" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 transition-colors">
+                        <span class="font-medium">Jabali Towers</span>
+                        <span class="block text-xs text-slate-400 mt-0.5">Luxury Apartments & Penthouses</span>
+                    </a>
+                    <a href="{{ route('properties.index', ['development' => 'Porini Point']) }}" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 transition-colors">
+                        <span class="font-medium">Porini Point</span>
+                        <span class="block text-xs text-slate-400 mt-0.5">Safari-Inspired Living</span>
+                    </a>
+                    <a href="{{ route('properties.index', ['development' => 'NEXT Amani']) }}" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 transition-colors">
+                        <span class="font-medium">NEXT Amani</span>
+                        <span class="block text-xs text-slate-400 mt-0.5">Modern Apartments</span>
+                    </a>
+                    <a href="{{ route('properties.index', ['development' => '156 Elara']) }}" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 transition-colors">
+                        <span class="font-medium">156 Elara</span>
+                        <span class="block text-xs text-slate-400 mt-0.5">Exclusive Townhouses</span>
+                    </a>
+                    <a href="{{ route('properties.index', ['development' => 'Kijani Ridge']) }}" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 transition-colors">
+                        <span class="font-medium">Kijani Ridge</span>
+                        <span class="block text-xs text-slate-400 mt-0.5">Premium Villas</span>
+                    </a>
+                    <div class="border-t border-slate-100 mt-1 pt-1">
+                        <a href="{{ route('properties.index') }}" class="block px-4 py-2.5 text-sm font-medium text-slate-500 hover:bg-slate-50 transition-colors">All Properties</a>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ route('about') }}" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">About</a>
             <a href="{{ route('contact') }}" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">Contact</a>
         </div>
 
@@ -80,7 +111,16 @@
         <div class="flex-1 p-6">
             <nav class="space-y-1">
                 <a href="{{ route('home') }}" class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl font-medium transition-colors">Home</a>
-                <a href="{{ route('properties.index') }}" class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl font-medium transition-colors">Properties</a>
+                <a href="{{ route('properties.index') }}" class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl font-medium transition-colors">All Properties</a>
+                <div class="px-4 pt-3 pb-1">
+                    <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Developments</p>
+                </div>
+                <a href="{{ route('properties.index', ['development' => 'Jabali Towers']) }}" class="flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-50 rounded-xl text-sm transition-colors">Jabali Towers</a>
+                <a href="{{ route('properties.index', ['development' => 'Porini Point']) }}" class="flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-50 rounded-xl text-sm transition-colors">Porini Point</a>
+                <a href="{{ route('properties.index', ['development' => 'NEXT Amani']) }}" class="flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-50 rounded-xl text-sm transition-colors">NEXT Amani</a>
+                <a href="{{ route('properties.index', ['development' => '156 Elara']) }}" class="flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-50 rounded-xl text-sm transition-colors">156 Elara</a>
+                <a href="{{ route('properties.index', ['development' => 'Kijani Ridge']) }}" class="flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-50 rounded-xl text-sm transition-colors">Kijani Ridge</a>
+                <a href="{{ route('about') }}" class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl font-medium transition-colors">About</a>
                 <a href="{{ route('contact') }}" class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl font-medium transition-colors">Contact</a>
                 @auth
                     @if(auth()->user()->isAdmin())
@@ -120,10 +160,17 @@
     function toggleUserMenu() {
         document.getElementById('user-menu').classList.toggle('hidden');
     }
+    function toggleDevelopments() {
+        document.getElementById('developments-dropdown').classList.toggle('hidden');
+    }
     document.addEventListener('click', (e) => {
-        const wrapper = document.getElementById('user-menu-wrapper');
-        if (wrapper && !wrapper.contains(e.target)) {
+        const userWrapper = document.getElementById('user-menu-wrapper');
+        const devWrapper = document.getElementById('developments-wrapper');
+        if (userWrapper && !userWrapper.contains(e.target)) {
             document.getElementById('user-menu').classList.add('hidden');
+        }
+        if (devWrapper && !devWrapper.contains(e.target)) {
+            document.getElementById('developments-dropdown').classList.add('hidden');
         }
     });
 </script>

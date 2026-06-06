@@ -8,7 +8,7 @@
         <div class="max-w-7xl mx-auto">
             <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-2">Get In Touch</p>
             <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">Let's Talk</h1>
-            <p class="text-slate-500 text-lg max-w-xl">Ready to find your dream home? Give us a call or send us a message on WhatsApp. We'd love to hear from you.</p>
+            <p class="text-slate-500 text-lg max-w-xl">Ready to find your dream home in Tatu City? Give us a call or send us a message on WhatsApp. We'd love to hear from you.</p>
         </div>
     </section>
 
@@ -74,7 +74,7 @@
                                 </div>
                                 <div>
                                     <p class="font-bold text-slate-900">Address</p>
-                                    <p class="text-slate-500">Nairobi, Kenya</p>
+                                    <p class="text-slate-500">Tatu City, Nairobi, Kenya</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <div class="bg-slate-100 min-h-[300px]">
-                        <img src="https://images.unsplash.com/photo-1524813686514-a57563d77965?w=1200&h=800&fit=crop&q=85" alt="Nairobi skyline" loading="lazy" class="w-full h-full object-cover">
+                        <img src="https://www.tatucity.com/wp-content/uploads/2024/08/Silver-Hill-Townhouses-1-1600x900.jpg" alt="Tatu City homes" loading="lazy" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -109,11 +109,11 @@
     <section class="py-16 px-4 md:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="relative rounded-4xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1600&h=500&fit=crop&q=85" alt="Luxury property" loading="lazy" class="w-full h-64 md:h-80 object-cover">
+                <img src="https://www.tatucity.com/wp-content/uploads/WhatsApp-Image-2024-10-30-at-22.14.11-3-1600x900.jpeg" alt="Kijani Ridge luxury home" loading="lazy" class="w-full h-64 md:h-80 object-cover">
                 <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-                    <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Your Dream Home Is One Call Away</h2>
-                    <p class="text-slate-300 max-w-lg mb-8">Let us help you find the perfect property. Reach out today and let's get started.</p>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Your Dream Home in Tatu City Is One Call Away</h2>
+                    <p class="text-slate-300 max-w-lg mb-8">Let us help you find the perfect property in Tatu City. Reach out today and let's get started.</p>
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <a href="tel:+254757896465" class="bg-white text-slate-900 px-8 py-3.5 rounded-full font-semibold hover:bg-slate-100 transition-colors">
                             Call Now
