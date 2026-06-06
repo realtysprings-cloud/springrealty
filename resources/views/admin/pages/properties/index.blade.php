@@ -20,11 +20,10 @@
         <input type="text" name="search" value="{{ request('search') }}" placeholder="Search properties..."
                class="flex-1 bg-slate-50 border-0 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-slate-200 placeholder:text-slate-400">
         <select name="type" class="bg-slate-50 border-0 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-slate-200">
-            <option value="">All Types</option>
-            <option value="house" {{ request('type') == 'house' ? 'selected' : '' }}>House</option>
-            <option value="apartment" {{ request('type') == 'apartment' ? 'selected' : '' }}>Apartment</option>
-            <option value="condo" {{ request('type') == 'condo' ? 'selected' : '' }}>Condo</option>
-            <option value="land" {{ request('type') == 'land' ? 'selected' : '' }}>Land</option>
+            <option value="">All Developments</option>
+            @foreach(['Jabali Towers', 'Porini Point', 'NEXT Amani', '156 Elara', 'Kijani Ridge'] as $dev)
+                <option value="{{ $dev }}" {{ request('type') == $dev ? 'selected' : '' }}>{{ $dev }}</option>
+            @endforeach
         </select>
         <select name="status" class="bg-slate-50 border-0 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-slate-200">
             <option value="">All Status</option>
@@ -43,7 +42,7 @@
                     <thead>
                         <tr class="text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">
                             <th class="px-6 py-4">Property</th>
-                            <th class="px-6 py-4 hidden sm:table-cell">Type</th>
+                            <th class="px-6 py-4 hidden sm:table-cell">Development</th>
                             <th class="px-6 py-4">Status</th>
                             <th class="px-6 py-4 hidden md:table-cell">Price</th>
                             <th class="px-6 py-4 text-right">Actions</th>

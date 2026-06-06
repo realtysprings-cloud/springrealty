@@ -18,8 +18,8 @@ class PropertyController extends Controller
             $search = $request->search;
             $query->where(function ($q) use ($search) {
                 $q->where('title', 'like', "%{$search}%")
-                  ->orWhere('city', 'like', "%{$search}%")
-                  ->orWhere('address', 'like', "%{$search}%");
+                  ->orWhere('property_type', 'like', "%{$search}%")
+                  ->orWhere('developer', 'like', "%{$search}%");
             });
         }
 
@@ -47,21 +47,29 @@ class PropertyController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
-            'address' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
+            'address' => 'nullable|string|max:255',
+            'city' => 'nullable|string|max:255',
             'state' => 'nullable|string|max:255',
-            'zip_code' => 'nullable|string|max:20',
-            'property_type' => 'required|in:house,apartment,condo,land',
+            'property_type' => 'nullable|string|max:255',
+            'unit_type' => 'nullable|string|max:255',
+            'developer' => 'nullable|string|max:255',
             'status' => 'required|in:for_sale,for_rent,sold',
             'bedrooms' => 'nullable|integer|min:0',
             'bathrooms' => 'nullable|numeric|min:0',
             'square_feet' => 'nullable|integer|min:0',
+            'size_sqm' => 'nullable|numeric|min:0',
+            'completion_date' => 'nullable|string|max:255',
+            'payment_plan' => 'nullable|string',
+            'brochure_url' => 'nullable|url|max:255',
+            'key_features' => 'nullable|string',
             'year_built' => 'nullable|integer|min:1900|max:' . (date('Y') + 1),
             'featured' => 'boolean',
+            'is_featured_development' => 'boolean',
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5120',
         ]);
 
         $validated['featured'] = $request->boolean('featured');
+        $validated['is_featured_development'] = $request->boolean('is_featured_development');
 
         $property = Property::create($validated);
 
@@ -88,23 +96,31 @@ class PropertyController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
-            'address' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
+            'address' => 'nullable|string|max:255',
+            'city' => 'nullable|string|max:255',
             'state' => 'nullable|string|max:255',
-            'zip_code' => 'nullable|string|max:20',
-            'property_type' => 'required|in:house,apartment,condo,land',
+            'property_type' => 'nullable|string|max:255',
+            'unit_type' => 'nullable|string|max:255',
+            'developer' => 'nullable|string|max:255',
             'status' => 'required|in:for_sale,for_rent,sold',
             'bedrooms' => 'nullable|integer|min:0',
             'bathrooms' => 'nullable|numeric|min:0',
             'square_feet' => 'nullable|integer|min:0',
+            'size_sqm' => 'nullable|numeric|min:0',
+            'completion_date' => 'nullable|string|max:255',
+            'payment_plan' => 'nullable|string',
+            'brochure_url' => 'nullable|url|max:255',
+            'key_features' => 'nullable|string',
             'year_built' => 'nullable|integer|min:1900|max:' . (date('Y') + 1),
             'featured' => 'boolean',
+            'is_featured_development' => 'boolean',
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5120',
             'remove_images' => 'nullable|array',
             'remove_images.*' => 'integer|exists:property_images,id',
         ]);
 
         $validated['featured'] = $request->boolean('featured');
+        $validated['is_featured_development'] = $request->boolean('is_featured_development');
         $property->update($validated);
 
         if ($request->filled('remove_images')) {

@@ -23,12 +23,23 @@
                         <textarea name="description" rows="4"
                                   class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200 resize-none">{{ old('description', $property->description) }}</textarea>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div>
-                            <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Property Type</label>
-                            <select name="property_type" required class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
-                                @foreach(['house', 'apartment', 'condo', 'land'] as $type)
-                                    <option value="{{ $type }}" {{ old('property_type', $property->property_type) == $type ? 'selected' : '' }}>{{ ucfirst($type) }}</option>
+                            <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Development</label>
+                            <select name="property_type" class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
+                                <option value="">Select development</option>
+                                @foreach(['Jabali Towers', 'Porini Point', 'NEXT Amani', '156 Elara', 'Kijani Ridge'] as $dev)
+                                    <option value="{{ $dev }}" {{ old('property_type', $property->property_type) == $dev ? 'selected' : '' }}>{{ $dev }}</option>
+                                @endforeach
+                                <option value="custom" {{ old('property_type', $property->property_type) == 'custom' ? 'selected' : '' }}>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Unit Type</label>
+                            <select name="unit_type" class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
+                                <option value="">Select unit type</option>
+                                @foreach(['Studio', '1-Bedroom', '2-Bedroom', '3-Bedroom', '4-Bedroom', 'Penthouse', 'Townhouse', 'Villa', 'Plot'] as $type)
+                                    <option value="{{ $type }}" {{ old('unit_type', $property->unit_type) == $type ? 'selected' : '' }}>{{ $type }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -41,9 +52,22 @@
                             </select>
                         </div>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <input type="checkbox" name="featured" value="1" {{ old('featured', $property->featured) ? 'checked' : '' }} id="featured" class="w-4 h-4 rounded border-slate-300 text-slate-900 focus:ring-slate-900/10">
-                        <label for="featured" class="text-sm font-medium text-slate-600">Featured property</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Developer</label>
+                            <input type="text" name="developer" value="{{ old('developer', $property->developer) }}"
+                                   class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
+                        </div>
+                        <div class="flex items-end gap-6 pb-1">
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" name="featured" value="1" {{ old('featured', $property->featured) ? 'checked' : '' }} class="w-4 h-4 rounded border-slate-300 text-slate-900 focus:ring-slate-900/10">
+                                <span class="text-sm font-medium text-slate-600">Featured listing</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" name="is_featured_development" value="1" {{ old('is_featured_development', $property->is_featured_development) ? 'checked' : '' }} class="w-4 h-4 rounded border-slate-300 text-slate-900 focus:ring-slate-900/10">
+                                <span class="text-sm font-medium text-slate-600">Featured development</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -54,28 +78,18 @@
                 <div class="space-y-4">
                     <div>
                         <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Price (KES)</label>
-                        <input type="number" name="price" value="{{ old('price', $property->price) }}" required min="0" step="100"
+                        <input type="number" name="price" value="{{ old('price', $property->price) }}" required min="0" step="100000"
                                class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
                     </div>
-                    <div>
-                        <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Address</label>
-                        <input type="text" name="address" value="{{ old('address', $property->address) }}" required
-                               class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Address</label>
+                            <input type="text" name="address" value="{{ old('address', $property->address) }}"
+                                   class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
+                        </div>
                         <div>
                             <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">City</label>
-                            <input type="text" name="city" value="{{ old('city', $property->city) }}" required
-                                   class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
-                        </div>
-                        <div>
-                            <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">State</label>
-                            <input type="text" name="state" value="{{ old('state', $property->state) }}"
-                                   class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
-                        </div>
-                        <div>
-                            <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Zip Code</label>
-                            <input type="text" name="zip_code" value="{{ old('zip_code', $property->zip_code) }}"
+                            <input type="text" name="city" value="{{ old('city', $property->city) }}"
                                    class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
                         </div>
                     </div>
@@ -97,14 +111,43 @@
                                class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
                     </div>
                     <div>
+                        <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Size (sqm)</label>
+                        <input type="number" name="size_sqm" value="{{ old('size_sqm', $property->size_sqm) }}" min="0" step="0.01"
+                               class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
+                    </div>
+                    <div>
                         <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Sq Ft</label>
                         <input type="number" name="square_feet" value="{{ old('square_feet', $property->square_feet) }}" min="0"
                                class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
                     </div>
+                </div>
+            </div>
+
+            {{-- Payment & Features --}}
+            <div class="bg-white rounded-3xl border border-slate-100 p-6">
+                <h3 class="text-lg font-bold mb-5">Payment & Features</h3>
+                <div class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Completion Date</label>
+                            <input type="text" name="completion_date" value="{{ old('completion_date', $property->completion_date) }}"
+                                   class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Brochure URL</label>
+                            <input type="url" name="brochure_url" value="{{ old('brochure_url', $property->brochure_url) }}"
+                                   class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
+                        </div>
+                    </div>
                     <div>
-                        <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Year Built</label>
-                        <input type="number" name="year_built" value="{{ old('year_built', $property->year_built) }}" min="1900" max="{{ date('Y') + 1 }}"
+                        <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Payment Plan</label>
+                        <input type="text" name="payment_plan" value="{{ old('payment_plan', $property->payment_plan) }}"
                                class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200">
+                    </div>
+                    <div>
+                        <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 block">Key Features (comma-separated)</label>
+                        <textarea name="key_features" rows="2"
+                                  class="w-full bg-slate-50 border-0 rounded-2xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-slate-200 resize-none">{{ old('key_features', $property->key_features) }}</textarea>
                     </div>
                 </div>
             </div>
