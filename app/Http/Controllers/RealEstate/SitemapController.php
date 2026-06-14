@@ -18,10 +18,10 @@ class SitemapController extends Controller
 
         // Static pages
         $staticPages = [
-            '/' => now()->toDateTimeString(),
-            '/about' => now()->toDateTimeString(),
-            '/contact' => now()->toDateTimeString(),
-            '/properties' => now()->toDateTimeString(),
+            '/' => now()->toIso8601String(),
+            '/about' => now()->toIso8601String(),
+            '/contact' => now()->toIso8601String(),
+            '/properties' => now()->toIso8601String(),
         ];
 
         foreach ($staticPages as $path => $lastmod) {
@@ -37,7 +37,7 @@ class SitemapController extends Controller
         foreach ($properties as $property) {
             $xml .= '<url>';
             $xml .= '<loc>' . $baseUrl . '/properties/' . $property->id . '</loc>';
-            $xml .= '<lastmod>' . $property->updated_at->toDateTimeString() . '</lastmod>';
+            $xml .= '<lastmod>' . $property->updated_at->toIso8601String() . '</lastmod>';
             $xml .= '<changefreq>weekly</changefreq>';
             $xml .= '<priority>0.9</priority>';
             $xml .= '</url>';
