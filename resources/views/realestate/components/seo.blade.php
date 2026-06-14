@@ -1,6 +1,7 @@
 <title>@yield('seoTitle', 'Spring Realty | Tatu City Property Specialists')</title>
 <meta name="description" content="@yield('seoDescription', 'Premium properties in Tatu City, Nairobi. Luxury apartments at Jabali Towers, safari-inspired living at Porini Point, modern homes at NEXT Amani, 156 Elara, and Kijani Ridge.')">
 <link rel="canonical" href="@yield('seoUrl', url()->current())">
+<link rel="icon" type="image/png" href="{{ asset('fav.png') }}">
 
 {{-- Open Graph --}}
 <meta property="og:type" content="@yield('seoType', 'website')">
